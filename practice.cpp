@@ -13,13 +13,150 @@ using namespace std;
 // sqrt() from the cmath
 // maps header file for map
 
+void iterateVector(vector<int> &v)
+{
+    for(auto it : v)
+    {
+        cout<<it<<" ";
+    };
+    cout<<endl;
+};
+
+// MERGE SORT
+// merger sort has a better TC than insetion sort, bubble sort and selection sort
+void merge(int vect[], int low, int mid, int high)
+{
+    cout<<"merge running"<<endl;
+    vector<int> temp;
+    int left = low;
+    int right = mid+1;
+    while(left<=mid && right<=high)
+    {
+        if(vect[left]<=vect[right])
+        {
+            temp.push_back(vect[left]);
+            left++;
+        }
+        else
+        {
+            temp.push_back(vect[right]);
+            right++;
+        };
+    };
+    while(left<=mid)
+    {
+        temp.push_back(vect[left]);
+        left++;
+    };
+    while(right<=high)
+    {
+        temp.push_back(vect[right]);
+        right++;
+    };
+    for(int i = low; i<=high; i++)
+    {
+        vect[i] = temp[i-low];
+    };
+};
+void mergeSort(int arr[], int l, int r) {
+    cout<<"mergesort running"<<endl;
+    // Write Your Code Here
+    if(l==r) return;
+    int mid = (l+r)/2;
+    mergeSort(arr,l,mid);
+    mergeSort(arr,mid+1,r);
+    merge(arr,l,mid,r);
+}
+int main()
+{
+    int vect[] = {3,1,2,4,1,5,6,2,4};
+    int size = sizeof(vect)/sizeof(vect[0]);
+    mergeSort(vect,0,size);
+    for(int i = 0; i<size; i++)
+    {
+        cout<<vect[i]<<" ";
+    };
+};
+
+// INSERTION SORT
+// takes an element and places it in it's correct position
+// void insertionSort(vector<int> &vect)
+// {
+//     for(int i = 1; i<vect.size(); i++)
+//     {
+//         int main = i;
+//         for(int j = i-1; j>=0; j--)
+//         {
+//             if(vect[j]>vect[main])
+//             {
+//                 swap(vect[j],vect[main]);
+//                 main = j;
+//             };
+//         };
+//         iterateVector(vect);
+//     };
+// };
+// int main()
+// {
+//     vector<int> vect = {5,4,3,2,1};
+//     insertionSort(vect);
+// };
+// best case O(n)
+// average case O(n^2)
+
+// BUBBLE SORT
+// sort pairs
+// void bubbleSort(vector<int> &vect)
+// {
+//     for(int i = 0; i<vect.size(); i++)
+//     {
+//         for(int j = 0; j<vect.size()-1; j++)
+//         {
+//             if(vect[j+1]<vect[j])
+//             {
+//                 swap(vect[j],vect[j+1]);
+//             };
+//         };
+//         iterateVector(vect);
+//     };
+// };
+// int main()
+// {
+//     vector<int> vect = {5,4,3,2,1};
+//     bubbleSort(vect);
+// };
+// average case and worst case is O(n^2)
+// best case is O(n)
+
+// SELECTION SORT
+// select minimums
+// void selectionSort(vector<int> &vect)
+// {
+//     for(int i = 0; i<vect.size(); i++)
+//     {
+//         int mini = i;
+//         for(int j = i; j<vect.size(); j++)
+//         {
+//             if(vect[j]<vect[mini])
+//             {
+//                 mini = j;
+//             };
+//         };
+//         swap(vect[mini],vect[i]);
+//         iterateVector(vect);
+//     };
+// };
+// int main(){
+//     vector<int> vect = {5,4,3,2,1};
+//     selectionSort(vect);
+// };
+// TC of selection sort is O(n^2)
+
 // COMPLEXITY OF HASHING USING UNORDERED_MAPS
 // storing TC is O(1) (average and best)
 // fetch TC is O(1) (average and best)
 // in worst case O(n)
 // use unordered_map if it give TLE then use map
-
-
 
 // COMPLEXITY OF HASHING USING MAPS
 // storing and fetching TC O(log(n)) (in all cases, best, average and worst)
