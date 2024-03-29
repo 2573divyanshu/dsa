@@ -1,4 +1,8 @@
-#include<bits/stdc++.h>
+#include<iostream>
+#include<vector>
+#include<algorithm>
+#include<cmath>
+#include<map>
 using namespace std;
 
 void iterateVector(vector<int> &v)
@@ -12,6 +16,35 @@ void iterateVector(vector<int> &v)
 
 // stopped at 31.54
 
+// ⚡ MAP STL
+// concept of key value pairs
+// keys are unique
+// int main()
+// {
+//     // declaration
+//     map<char, int> map1;
+//     // insertion way 1
+//     map1['a'] = int('a');
+//     map1['b'] = int('b');
+//     map1['c'] = int('c');
+//     // insertion way 2 (using the insert function)
+//     map1.insert({'d', int('d')});
+//     // accessing
+//     // cout << map1['a'] << endl;
+//     // cout << map1['b'] << endl;
+//     // cout << map1['c'] << endl;
+//     // cout << map1['d'] << endl;
+//     // iterating
+//     for (auto it : map1)
+//     {
+//         cout << it.first << " " << it.second << " " << endl;
+//     };
+//     cout << endl;
+//     // finding
+//     auto it = map1.find('a');
+//     cout<<it->second<<endl;
+// };
+
 // ⚡ vectors
 // problem with arrays: we cannot change their size in runtime
 // but the size of vectors can be changed in the run time
@@ -20,10 +53,10 @@ void iterateVector(vector<int> &v)
 // doubt: push front isn't working
 // int main(){
 //     // example 1
-//     // vector<int> v1;
-//     // v1.push_back(1);
-//     // v1.push_back(2);
-//     // v1.push_back(3);
+//     vector<int> v1;
+//     v1.push_back(1);
+//     v1.push_back(2);
+//     v1.push_back(3);
 //     // iterateVector(v1);
 //     // example 2
 //     // vector<pair<int,int>>v1;
@@ -121,9 +154,9 @@ void iterateVector(vector<int> &v)
 //     // cout<<vect1.empty()<<endl;
 //     // cout<<vect2.empty()<<endl;
 //     // example 17 (push_front function)
-//     vector<int> vect1 = {1,2,3};
-//     iterateVector(vect1);
-//     iterateVector(vect1);
+//     // vector<int> vect1 = {1,2,3};
+//     // iterateVector(vect1);
+//     // iterateVector(vect1);
 // };
 
 // ⚡ pairs
@@ -146,7 +179,7 @@ void iterateVector(vector<int> &v)
 //     return 0;
 // };
 
-// ⚡ one library for everythin
+// ⚡ one library for everythings
 // #include<bits/stdc++.h>
 
 // ⚡header files

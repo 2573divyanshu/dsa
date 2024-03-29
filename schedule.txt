@@ -1,0 +1,11 @@
+29 MARCH 
+- 🟩 Make notes for sorting algos
+- 🟩 Make notes for basic maths
+- ⬜ Watch solutions for recursion problems
+- ⬜ Solve Array easy problems
+
+30 MARCH
+- ⬜ Make notes for hashing
+- ⬜ Make notes for recursion
+- ⬜ Watch solutions for Array easy problems
+- ⬜ Solve Array medium problems

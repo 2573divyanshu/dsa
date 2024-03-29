@@ -22,61 +22,121 @@ void iterateVector(vector<int> &v)
     cout<<endl;
 };
 
+
+
+// TC OF SORT FUNCTION
+// for average case it is O(n*log(n))
+// for worst case it is O(n^2)
+
+// QUICK SORT
+// also known as the divide and conquer algorithm
+// pick up a pivot and place it in it's correct position in sorted array
+// smaller on the left and larger on the right
+// tc is O(nlog(n))
+// sc is O(1)
+// int func(vector<int>&vect,int low,int high)
+// {
+//     cout<<"func2 running"<<endl;
+//     int i = low;
+//     int j = high;
+//     while(i<j)
+//     {
+//         while(vect[i]<=vect[low]&&i<=high)
+//         {
+//             i++;
+//         };
+//         while(vect[j]>vect[low]&&j>=low)
+//         {
+//             j--;
+//         };
+//         if(i<j)
+//         {
+//             swap(vect[i],vect[j]);
+//         };
+//     };
+//     swap(vect[j],vect[low]);
+//     return j;
+// };
+// void quickSort(vector<int>&vect,int low,int high)
+// {
+//     cout<<"func1 running"<<endl;
+//     if(low<high)
+//     {
+//         int pivot = func(vect,low,high);
+//         quickSort(vect,low,pivot-1);
+//         quickSort(vect,pivot+1,high);
+//     };
+// };
+// int main(){
+//     vector<int> vect = {1,2,3,4,5};
+//     int low = 0;
+//     int high = vect.size()-1;
+//     quickSort(vect,low,high);
+//     iterateVector(vect);
+//     return 0;
+// };
+
+// REASON BEHIND TC AND SC OF MERGE SORT
+// if the array contains 16 elements then the main function will be called 4 times log2(n)
+// and in every main function call we are traversing the whole array so TC comes out to n*log2(n)
+// for every merger function call a new temporary array is being made
+// so the SC is O(n)
+
 // MERGE SORT
-// merger sort has a better TC than insetion sort, bubble sort and selection sort
-void merge(int vect[], int low, int mid, int high)
-{
-    cout<<"merge running"<<endl;
-    vector<int> temp;
-    int left = low;
-    int right = mid+1;
-    while(left<=mid && right<=high)
-    {
-        if(vect[left]<=vect[right])
-        {
-            temp.push_back(vect[left]);
-            left++;
-        }
-        else
-        {
-            temp.push_back(vect[right]);
-            right++;
-        };
-    };
-    while(left<=mid)
-    {
-        temp.push_back(vect[left]);
-        left++;
-    };
-    while(right<=high)
-    {
-        temp.push_back(vect[right]);
-        right++;
-    };
-    for(int i = low; i<=high; i++)
-    {
-        vect[i] = temp[i-low];
-    };
-};
-void mergeSort(int arr[], int l, int r) {
-    cout<<"mergesort running"<<endl;
-    // Write Your Code Here
-    if(l==r) return;
-    int mid = (l+r)/2;
-    mergeSort(arr,l,mid);
-    mergeSort(arr,mid+1,r);
-    merge(arr,l,mid,r);
-}
-int main()
-{
-    int vect[] = {3,1,2,4,1,5,6,2,4};
-    int size = sizeof(vect)/sizeof(vect[0]);
-    mergeSort(vect,0,size);
-    for(int i = 0; i<size; i++)
-    {
-        cout<<vect[i]<<" ";
-    };
-};
+// merge sort has a better TC than insetion sort, bubble sort and selection sort
+// void merge(vector<int> &arr, int low, int mid, int high)
+// {
+//     cout<<"func2 running"<<endl;
+//     vector<int> temp;
+//     int left = low;
+//     int right = mid + 1;
+//     while(left<=mid && right<=high)
+//     {
+//         if(arr[left] <= arr[right])
+//         {
+//             temp.push_back(arr[left]);
+//             left++;
+//         }
+//         else
+//         {
+//             temp.push_back(arr[right]);
+//             right++;
+//         };
+//     };
+//     while(left<=mid)
+//     {
+//         temp.push_back(arr[left]);
+//         left++;
+//     };
+//     while(right<=high)
+//     {
+//         temp.push_back(arr[right]);
+//         right++;
+//     };
+//     for(int i = low; i<=high; i++)
+//     {
+//         arr[i] = temp[i-low];
+//     };
+// };
+// void mergerSort(vector<int> &arr, int low, int high)
+// {
+//     if(low>=high) return;
+//     cout<<"func1 running"<<endl;
+//     int mid = (high+low)/2;
+//     mergerSort(arr,low,mid);
+//     mergerSort(arr,mid+1,high);
+//     merge(arr,low,mid,high);
+// };
+// int main()
+// {
+//     vector<int> vect = {9,4,7,6,3,1,5};
+//     int n = 7;
+//     iterateVector(vect);
+//     mergerSort(vect,0,n-1);
+//     iterateVector(vect);
+// };
+// TC is O(nlog(n))
+// SC is O(n)
 
 // INSERTION SORT
 // takes an element and places it in it's correct position
@@ -218,35 +278,6 @@ int main()
 //     }
 // };
 // it's TC is O(n);
-
-// MAP STL
-// concept of key value pairs
-// keys are unique
-// int main()
-// {
-//     // declaration
-//     map<char, int> map1;
-//     // insertion way 1
-//     map1['a'] = int('a');
-//     map1['b'] = int('b');
-//     map1['c'] = int('c');
-//     // insertion way 2 (using the insert function)
-//     map1.insert({'d', int('d')});
-//     // accessing
-//     cout << map1['a'] << endl;
-//     cout << map1['b'] << endl;
-//     cout << map1['c'] << endl;
-//     cout << map1['d'] << endl;
-//     // iterating
-//     for (auto it : map1)
-//     {
-//         cout << it.first << " " << it.second << " " << endl;
-//     };
-//     cout << endl;
-//     // finding
-//     auto it = map1.find('a');
-//     cout<<it->second<<endl;
-// };
 
 // PROBLEMS WITH ARRAY HASHING
 // is it won't work if the size of input is too large
