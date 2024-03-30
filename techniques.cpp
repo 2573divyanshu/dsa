@@ -67,3 +67,12 @@
 //   vect[(i+k)%k] = vectCopy(i);
 // }
 
+
+
+
+
+// ⚡ BIT MANIPULATION
+
+// reversing a string using the reverse method
+// reverse(str.begin(),str.end());
+
