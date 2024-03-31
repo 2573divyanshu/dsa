@@ -1,15 +1,165 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+// ⚡ 
+
+// ⚡ ODD CHECK (FASTER)
+// n&1
+
+// ⚡ DIVISION BY (FASTER)
+// n>>1;
+
+// ⚡ COUNT NUMBER OF SET BITS
+// METHOD 1 (BRUTEFORCE)
+// int countSetBits(int n)
+// {
+//     int count = 0;
+//     while(n!=0)
+//     {
+//         count += n&1;
+//         n>>=1;
+//     };
+//     return count;
+// };
+// METHOD 2 (OPTIMAL)
+// int countSetBits(int n)
+// {
+//     int count = 0;
+//     while(n!=0)
+//     {
+//         count++;
+//         n = n&(n-1);
+//     };
+//     return count;
+// };
+// TC is O(number of setBits)
+// TC is O(31) for worst case
+// int main(){
+//     int n;
+//     cout<<"Enter the value of n: ";
+//     cin>>n;
+//     cout<<"number of set bits "<<countSetBits(n)<<endl;
+//     return 0;
+// };
+
+// ⚡ CHECK IF THE NUMBER IS POWER OF 2 OR NOT
+// int checkIfPowerOf2(int n)
+// {
+//     if(n<=0) return 0;
+//     return ((n&(n-1))==0);
+// };
+// int main()
+// {
+//     int n;
+//     cout<<"Enter the value of n: ";
+//     cin>>n;
+//     if(checkIfPowerOf2(n))
+//     {
+//         cout<<"yes"<<endl;
+//     }
+//     else
+//     {
+//         cout<<"no"<<endl;
+//     };
+//     return 0;
+// };
+
+// ⚡ REMOVING THE LAST SET BIT (RIGHTMOST)
+// METHOD 1 (BRUTEFORCE)
+// int removeLastSetBit(int n)
+// {
+//     int mask = 1;
+//     while((n&mask)==0)
+//     {
+//         mask<<=1;
+//     };
+//     return n^mask;
+// };
+// METHOD 2 (OPTIMAL)
+// int removeLastSetBit(int n)
+// {
+//     return n&(n-1);
+// };
+// int main()
+// {
+//     int n;
+//     cout<<"Enter the value of n: ";
+//     cin>>n;
+//     cout<<removeLastSetBit(n);
+// };
+
+// ⚡ RELATION BETWEEN THE BINARY REPRESENTATION OF N AND N-1
+// a-0 = 16 10000
+// a-1 = 15 01111
+// b-0 = 40 101000
+// b-1 = 39 100111
+// c-0 = 84 1010100
+// c-1 = 83 1010011
+
+// ⚡ TOGGLE THE ITH BIT
+// METHOD 1 (BRUTEFORCE)
+// int toggleIthBit(int n,int i)
+// {
+//     if(n&(1<<i))
+//     {
+//         return n&~(1<<i);
+//     }
+//     else
+//     {
+//         return n|(1<<i);
+//     };
+// };
+// METHOD 2 (OPTIMAL)
+// int togggleIthBit(int n, int i)
+// {
+//     return n^(1<<i);
+// };
+// int main()
+// {
+//     int n;
+//     int i;
+//     cout<<"Enter the value of n: "<<endl;
+//     cin>>n;
+//     cout<<"Enter thev value of i: "<<endl;
+//     cin>>i;
+//     cout<<togggleIthBit(n,i)<<endl;
+//     return 0;
+// };
+
 // ⚡ UNSET THE ITH BIT
-int main(){
-    int n;
-    cout<<"Enter the value of n: ";
-    int i;
-    cout<<"Enter the value of i: ";
-    cout<<unset(n,i)<<endl;
-    return 0;
-};
+// METHOD 1 (BRUTE FORCE)
+// int unsetIthBit(int n, int i)
+// {
+//     int mask = 0;
+//     int nCopy = n;
+//     while(nCopy!=0)
+//     {
+//         mask = (mask<<1)|1;
+//         nCopy>>=1;
+//     };
+//     // return ~(mask&(1<<i))&n;
+// };
+// METHOD 2 (BETTER) 
+// int unsetIthBit(int n, int i)
+// {
+//     return n&(__INT32_MAX__-(1<<i));
+// };
+// METHOD 3 (OPTIMAL)
+// int unsetIthBit(int n, int i)
+// {
+//     return n&(~(1<<i));
+// };
+// int main()
+// {
+//     int n;
+//     int i;
+//     cout<<"Enter the value of n: ";
+//     cin>>n;
+//     cout<<"Enter the value of i: ";
+//     cin>>i;
+//     cout<<unsetIthBit(n,i)<<endl;
+//     return 0;
+// };
 
 // ⚡ SET THE iTH BIT
 // int setNthBit(int i, int n)
@@ -84,6 +234,13 @@ int main(){
 //     b = a^b;
 //     a = a^b;
 // };
+// another way
+// void swap(int &a, int &b)
+// {
+//     a = a+b;
+//     b = a-b;
+//     a = a-b;
+// };
 // int main()
 // {
 //     int a;
@@ -153,6 +310,7 @@ int main(){
 //     int n;
 //     cout<<"Enter the value of n: ";
 //     cin>>n;
+//     // cout<<"its ones compliment is "<<(~n)<<endl;
 //     cout<<onescompliment(n)<<endl;
 // };
 
